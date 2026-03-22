@@ -423,6 +423,14 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .slide {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--dark);
+    transform: scale(1);
+    animation: none;
+  }
   .nav {
     padding: 20px 24px;
   }
