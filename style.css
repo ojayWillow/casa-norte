@@ -45,7 +45,6 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  
 }
 
 .slide {
@@ -74,7 +73,7 @@ body {
 
 @keyframes slowzoom {
   from { transform: scale(1.04); }
-  to   { transform: scale(1.10); }
+  to { transform: scale(1.10); }
 }
 
 /* ===== OVERLAY ===== */
@@ -141,11 +140,12 @@ body {
   max-width: 760px;
   animation: fadeUp 1.4s ease both;
   animation-delay: 0.3s;
+  transition: opacity 0.8s ease;
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .eyebrow {
@@ -262,6 +262,7 @@ body {
   gap: 8px;
   animation: fadeUp 2s ease both;
   animation-delay: 1.5s;
+  transition: opacity 0.8s ease;
 }
 
 .scroll-hint span {
@@ -279,8 +280,8 @@ body {
 }
 
 @keyframes scrollDrop {
-  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
   100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
 }
 
@@ -419,25 +420,20 @@ body {
   .nav {
     padding: 20px 24px;
   }
-
   .about {
     padding: 80px 24px;
   }
-
   .about-inner {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-
   .signup-form {
     flex-direction: column;
   }
-
   .email-input {
     width: 100%;
     min-width: 260px;
   }
-
   .dots {
     right: 24px;
     bottom: 28px;
