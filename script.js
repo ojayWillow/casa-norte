@@ -16,11 +16,23 @@ slides.forEach((_, i) => {
 const dotEls = document.querySelectorAll('.dot');
 
 function goTo(index) {
+  // Pause video in current slide if it has one
+  const currentVideo = slides[current].querySelector('video');
+  if (currentVideo) currentVideo.pause();
+
   slides[current].classList.remove('active');
   dotEls[current].classList.remove('active');
   current = index;
   slides[current].classList.add('active');
   dotEls[current].classList.add('active');
+
+  // Play video in new slide if it has one
+  const newVideo = slides[current].querySelector('video');
+  if (newVideo) {
+    newVideo.currentTime = 0;
+    newVideo.play();
+  }
+
   resetTimer();
 }
 
@@ -43,14 +55,9 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = form.querySelector('input[type="email"]').value.trim();
   if (!email) return;
-
-  // Simulate submission (replace with real API call / Mailchimp / etc.)
   note.style.color = '#d4b896';
-  note.textContent = '✓ You\'re on the list. We\'ll be in touch.';
+  note.textContent = '\u2713 You\'re on the list. We\'ll be in touch.';
   form.querySelector('input').value = '';
-
-  // Optional: send to backend or email service here
-  // fetch('/subscribe', { method: 'POST', body: JSON.stringify({ email }) })
 });
 
 // ===== SCROLL FADE-IN for About Section =====
