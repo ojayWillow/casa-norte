@@ -426,6 +426,43 @@ body {
   .nav {
     padding: 20px 24px;
   }
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .hero-content {
+    padding: 0 20px;
+  }
+  .headline {
+    font-size: clamp(2.4rem, 12vw, 4.5rem);
+    margin-bottom: 18px;
+  }
+  .eyebrow {
+    font-size: 0.65rem;
+    margin-bottom: 14px;
+  }
+  .subheadline {
+    font-size: 0.88rem;
+    margin-bottom: 36px;
+  }
+  .signup-block {
+    width: 100%;
+    max-width: 340px;
+  }
+  .signup-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .email-input {
+    width: 100%;
+    min-width: unset;
+    text-align: center;
+  }
+  .cta-btn {
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+  }
   .about {
     padding: 80px 24px;
   }
@@ -433,15 +470,60 @@ body {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .signup-form {
-    flex-direction: column;
+  .about-text h2 {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
   }
-  .email-input {
-    width: 100%;
-    min-width: 260px;
+  .about-details {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .detail-item {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+  .detail-num {
+    font-size: 1.8rem;
   }
   .dots {
     right: 24px;
     bottom: 28px;
+  }
+  .scroll-hint {
+    bottom: 24px;
+  }
+  .footer {
+    padding: 48px 24px;
+  }
+  .footer-logo {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav {
+    padding: 16px 16px;
+  }
+  .logo {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+  .nav-tagline {
+    font-size: 0.6rem;
+  }
+  .hero-content {
+    padding: 0 16px;
+  }
+  .headline {
+    font-size: clamp(2rem, 11vw, 3.5rem);
+  }
+  .signup-block {
+    max-width: 100%;
+  }
+  .about {
+    padding: 60px 16px;
+  }
+  .footer {
+    padding: 40px 16px;
   }
 }
