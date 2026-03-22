@@ -20,18 +20,15 @@ const dotEls = document.querySelectorAll('.dot');
 function toggleContent(index) {
   const isVideo = slides[index].classList.contains('slide-video');
   if (isVideo) {
-    heroContent.style.opacity = '0';
-    heroContent.style.pointerEvents = 'none';
-    scrollHint.style.opacity = '0';
+    heroContent.classList.add('hidden');
+    scrollHint.classList.add('hidden');
   } else {
-    heroContent.style.opacity = '1';
-    heroContent.style.pointerEvents = 'auto';
-    scrollHint.style.opacity = '1';
+    heroContent.classList.remove('hidden');
+    scrollHint.classList.remove('hidden');
   }
 }
 
 function goTo(index) {
-  // Pause video in current slide if it has one
   const currentVideo = slides[current].querySelector('video');
   if (currentVideo) currentVideo.pause();
 
@@ -41,7 +38,6 @@ function goTo(index) {
   slides[current].classList.add('active');
   dotEls[current].classList.add('active');
 
-  // Play video in new slide if it has one
   const newVideo = slides[current].querySelector('video');
   if (newVideo) {
     newVideo.currentTime = 0;
@@ -61,7 +57,6 @@ function resetTimer() {
   timer = setInterval(next, 5500);
 }
 
-// Initial state
 toggleContent(0);
 timer = setInterval(next, 5500);
 
