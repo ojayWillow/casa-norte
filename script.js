@@ -1,6 +1,8 @@
 // ===== SLIDESHOW =====
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
+const heroContent = document.querySelector('.hero-content');
+const scrollHint = document.querySelector('.scroll-hint');
 let current = 0;
 let timer;
 
@@ -14,6 +16,19 @@ slides.forEach((_, i) => {
 });
 
 const dotEls = document.querySelectorAll('.dot');
+
+function toggleContent(index) {
+  const isVideo = slides[index].classList.contains('slide-video');
+  if (isVideo) {
+    heroContent.style.opacity = '0';
+    heroContent.style.pointerEvents = 'none';
+    scrollHint.style.opacity = '0';
+  } else {
+    heroContent.style.opacity = '1';
+    heroContent.style.pointerEvents = 'auto';
+    scrollHint.style.opacity = '1';
+  }
+}
 
 function goTo(index) {
   // Pause video in current slide if it has one
@@ -33,6 +48,7 @@ function goTo(index) {
     newVideo.play();
   }
 
+  toggleContent(current);
   resetTimer();
 }
 
@@ -45,6 +61,8 @@ function resetTimer() {
   timer = setInterval(next, 5500);
 }
 
+// Initial state
+toggleContent(0);
 timer = setInterval(next, 5500);
 
 // ===== SIGN-UP FORM =====
