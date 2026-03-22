@@ -1,8 +1,6 @@
 // ===== SLIDESHOW =====
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
-const heroContent = document.querySelector('.hero-content');
-const scrollHint = document.querySelector('.scroll-hint');
 let current = 0;
 let timer;
 
@@ -17,34 +15,12 @@ slides.forEach((_, i) => {
 
 const dotEls = document.querySelectorAll('.dot');
 
-function toggleContent(index) {
-  const isVideo = slides[index].classList.contains('slide-video');
-  if (isVideo) {
-    heroContent.classList.add('hidden');
-    scrollHint.classList.add('hidden');
-  } else {
-    heroContent.classList.remove('hidden');
-    scrollHint.classList.remove('hidden');
-  }
-}
-
 function goTo(index) {
-  const currentVideo = slides[current].querySelector('video');
-  if (currentVideo) currentVideo.pause();
-
   slides[current].classList.remove('active');
   dotEls[current].classList.remove('active');
   current = index;
   slides[current].classList.add('active');
   dotEls[current].classList.add('active');
-
-  const newVideo = slides[current].querySelector('video');
-  if (newVideo) {
-    newVideo.currentTime = 0;
-    newVideo.play();
-  }
-
-  toggleContent(current);
   resetTimer();
 }
 
@@ -57,7 +33,6 @@ function resetTimer() {
   timer = setInterval(next, 5500);
 }
 
-toggleContent(0);
 timer = setInterval(next, 5500);
 
 // ===== SIGN-UP FORM =====
